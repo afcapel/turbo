@@ -2,7 +2,6 @@ import { VisitOptions, Visit } from "../../core/drive/visit"
 import { FormSubmission } from "../../core/drive/form_submission"
 import { Adapter } from "../../core/native/adapter"
 import * as Turbo from "../../index"
-import { beforeEach, afterEach, expect, test } from "@jest/globals"
 
 export class DeprecatedAdapter implements Adapter {
   locations: any[] = []
@@ -50,7 +49,7 @@ afterEach(() => {
   Turbo.registerAdapter(originalAdapter)
 })
 
-test("visit proposal location includes deprecated absoluteURL property", async () => {
+it("visit proposal location includes deprecated absoluteURL property", async () => {
   Turbo.navigator.proposeVisit(new URL(window.location.toString()))
   expect(adapter.locations.length).toEqual(1)
 
@@ -58,7 +57,7 @@ test("visit proposal location includes deprecated absoluteURL property", async (
   expect(location.toString()).toEqual(location.absoluteURL)
 })
 
-test("visit start location includes deprecated absoluteURL property", async () => {
+it("visit start location includes deprecated absoluteURL property", async () => {
   Turbo.navigator.startVisit(window.location.toString(), "123")
   expect(adapter.locations.length).toEqual(1)
 

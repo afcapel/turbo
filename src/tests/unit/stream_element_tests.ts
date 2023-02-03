@@ -1,6 +1,5 @@
 import { StreamElement } from "../../elements"
 import { nextBeat } from "../../util"
-import { beforeEach, expect, test } from "@jest/globals"
 
 beforeEach(() => {
   document.body.innerHTML = `<div><div id="hello">Hello Turbo</div></div>`
